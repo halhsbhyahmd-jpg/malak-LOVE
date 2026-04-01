@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malak ❤️ Love</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Login */
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255,255,255,0.2);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+input {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+
+button {
+  padding: 12px 25px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 10px;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+}
+
+/* Content */
+.content {
+  display: none;
+  margin-top: 80px;
+  color: white;
+}
+
+h1 {
+  font-size: 45px;
+  animation: fadeIn 2s ease;
+}
+
+.message {
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+/* Hearts */
+.heart {
+  position: absolute;
+  font-size: 20px;
+  color: red;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh); }
+  100% { transform: translateY(-10vh); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Login -->
+<div class="login-box" id="login">
+  <h2>Enter Password 💖</h2>
+  <input type="password" id="password" placeholder="29/3">
+  <br>
+  <button onclick="checkPassword()">Enter</button>
+</div>
+
+<!-- Content -->
+<div class="content" id="content">
+  <h1>Malak ❤️ Love</h1>
+  <div class="message">
+    Happy Birthday 🎉💖<br><br>
+    I Love You Forever ❤️
+  </div>
+
+  <!-- Video -->
+  <iframe width="0" height="0"
+    src="https://www.youtube.com/embed/_fVNgsBbxN0?autoplay=1&mute=1"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<script>
+function checkPassword() {
+  var pass = document.getElementById("password").value;
+
+  if(pass === "29/3") {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("content").style.display = "block";
+
+    setInterval(createHeart, 300);
+  } else {
+    alert("Wrong password ❌");
+  }
+}
+
+function createHeart() {
+  var heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}
+</script>
+
+</body>
+</html>
